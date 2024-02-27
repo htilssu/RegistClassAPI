@@ -28,18 +28,22 @@ export const AVATAR_URL = process.env.AVATAR_URL!;
 export const ADD_REACTION = "👍";
 export const REMOVE_REACTION = "👎";
 export const GetEmbed = (type: EmbedType): EmbedBuilder => {
-    switch (type) {
-        case "add":
-            return new EmbedBuilder()
-                .setColor("#00FFFF")
-                .setAuthor({
-                    iconURL: AVATAR_URL,
-                    name: "Hisu"
-                })
-        case "remove":
-            break;
+    if (type === "add") {
+        return new EmbedBuilder()
+            .setColor("#00FFFF")
+            .setAuthor({
+                iconURL: AVATAR_URL,
+                name: "Hisu"
+            })
+    } else if (type === "remove") {
+        return new EmbedBuilder()
+            .setColor("#FF0000")
+            .setAuthor({
+                iconURL: AVATAR_URL,
+                name: "Hisu"
+            })
     }
-
+    return new EmbedBuilder();
 };
 
 export type EmbedType = "add" | "remove" | "subscribed";
