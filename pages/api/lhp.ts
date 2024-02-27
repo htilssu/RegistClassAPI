@@ -26,6 +26,6 @@ export default async function handler(
             console.log("LHP saved");
         });
     } else {
-        res.status(405).end(); // Method not allowed
+        res.status(200).end(); // Method not allowed
     }
 }
