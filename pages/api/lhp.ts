@@ -12,11 +12,11 @@ export default async function handler(
 ) {
     if (req.method === "GET") {
         LHP.findOne({LHP: req.query.LHP as string}).then((lhp) => {
+            console.log(lhp?.LHP, lhp?.secret)
             res.status(200).json({
                 LHP: lhp?.LHP,
                 secret: lhp?.secret
             });
-
         });
     } else if (req.method === "POST") {
         const body: LHPData = req.body;
@@ -28,4 +28,5 @@ export default async function handler(
     } else {
         res.status(200).end(); // Method not allowed
     }
+    res.status(200).end();
 }
