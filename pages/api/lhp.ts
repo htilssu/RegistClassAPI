@@ -2,8 +2,6 @@
 import type {NextApiRequest, NextApiResponse} from 'next'
 import {LHP} from "@/app/services/Storage";
 import client, {ClientDo, GetChannelById, GetEmbed} from "@/app/services/DiscordBot";
-import {Channel} from "node:diagnostics_channel";
-import {BaseChannel, EmbedBuilder} from "discord.js";
 
 client;
 type LHPData = {
@@ -55,5 +53,4 @@ export default async function handler(
     } else {
         res.status(403);
     }
-    res.end();
 }
